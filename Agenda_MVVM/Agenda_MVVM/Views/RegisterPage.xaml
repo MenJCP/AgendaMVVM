@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda_MVVM.Views.RegisterPage" Title="New User"> 
+        
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Name}" Style="{StaticResource NameLabelStyle}"/>            
+            <Entry x:Name="nameEntry" Placeholder="{Binding NameText}"
+                   VerticalOptions="CenterAndExpand" />
+            <Label Text="{Binding Number}" Style="{StaticResource NumberLabelStyle}"/>
+            <Entry x:Name="numberEntry" Placeholder="{Binding NumberText}" Keyboard="Numeric"
+                   VerticalOptions="CenterAndExpand" />
+            <Button x:Name="addEntry" Text="{Binding AddText}" Command="{Binding AddButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

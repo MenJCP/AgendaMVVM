@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda_MVVM.Views.HomePage"
+             x:Name="homepage">
+    
+        <ListView ItemsSource="{Binding Agendas}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="More" Command="{Binding Source={x:Reference homepage}, Path=BindingContext.MoreCommand}" CommandParameter="{Binding}"/>
+                        <MenuItem Text="Delete" Command="{Binding Source={x:Reference homepage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"/>
+                    </ViewCell.ContextActions>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" Style="{StaticResource NameLabelStyle}"/>
+                        <Label Text="{Binding Number}" Style="{StaticResource NumberLabelStyle}"/>                        
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        </ListView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="AddToolbar" Order="Primary"  Text="Add" Priority="0" Command="{Binding AddCommand}"/>
+        
+    </ContentPage.ToolbarItems>
+
+</ContentPage>
